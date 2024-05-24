@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Data Properti</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="script.js"></script>
+    <style>
+        #propertyTable td {
+            text-align: center; /* Memusatkan teks di sel tabel */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="btn btn-back">Kembali ke Beranda</a>
+        <h1>Data Properti</h1>
+        <table id="propertyTable" class="display">
+            <thead>
+                <tr>
+                    <th>Borough</th>
+                    <th>Neighborhood</th>
+                    <th>Building Category</th>
+                    <th>Residential Units</th>
+                    <th>Commercial Units</th>
+                    <th>Total Units</th>
+                    <th>Land Square Feet</th>
+                    <th>Year Built</th>
+                    <th>Sale Price</th>
+                    <th>Sale Date</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('#propertyTable').DataTable({
+                "ajax": {
+                    "url": "data.json",
+                    "dataSrc": ""
+                },
+                "columns": [
+                    { "data": "BOROUGH" },
+                    { "data": "NEIGHBORHOOD" },
+                    { "data": "CATEGORY BUILDING" },
+                    { "data": "RESIDENTIAL UNITS" },
+                    { "data": "COMMERCIAL UNITS" },
+                    { "data": "TOTAL UNITS" },
+                    { "data": "LAND SQUARE FEET" },
+                    { "data": "YEAR BUILT" },
+                    { "data": "SALE PRICE" },
+                    { "data": "SALE DATE" }
+                ]
+            });
+        });
+    </script>
+    <head>
+        ...
+        <style>
+            .btn-back {
+                display: inline-block;
+                padding: 10px 20px;
+                margin-bottom: 20px;
+                background-color: #007bff;
+                color: white;
+                text-decoration: none;
+                border-radius: 5px;
+                text-align: center;
+                transition: background-color 0.3s;
+            }
+    
+            .btn-back:hover {
+                background-color: #0056b3;
+                color: white;
+            }
+        </style>
+    </head>
+</body>
+</html>
+</html>

@@ -331,6 +331,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     updateTotalUnitSalesPerMonthChart(totalUnitSalesData);
                 }
                 initSalesMap(filteredData);
+                updateDataTable(filteredData); // Call updateDataTable to fill the table with data
             });
     }
 

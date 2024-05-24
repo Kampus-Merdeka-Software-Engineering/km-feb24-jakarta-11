@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
   <head>
     <!-- Ini adalah bagian header dari HTML yang berisi metadata dan link ke CSS/JS -->
     <title>Website Dashboard - SE - Jakarta - Team 11</title>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="globals.css" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="script.js"></script>
   </head>
   <body>
     <!-- Konten utama halaman berada di sini -->
@@ -88,7 +91,7 @@
             </div>
           </div>
           <div class="background-shadow-wrapper">
-            <select id="boroughFilter" class="filter-dropdown">
+            <select id="boroughFilter" class="filter-dropdown" aria-label="Filter by Borough">
               <option value="BOROUGH">BOROUGH</option>
               <option value="Staten Island">Staten Island</option>
               <option value="Queens">Queens</option>
@@ -98,7 +101,7 @@
             </select>
           </div>
           <div class="canvas-component-2">
-            <select id="buildingCategoryFilter" class="filter-dropdown">
+            <select id="buildingCategoryFilter" class="filter-dropdown" aria-label="Filter by Building Category">
               <option value="CATEGORY BUILDING">CATEGORY BUILDING</option>
               <option value="WAREHOUSES">WAREHOUSES</option>
               <option value="ONE FAMILY DWELLINGS">ONE FAMILY DWELLINGS</option>
@@ -144,7 +147,7 @@
             </select>
           </div>
           <div class="canvas-component-10">
-            <select id="monthYearFilter" class="filter-dropdown">
+            <select id="monthYearFilter" class="filter-dropdown" aria-label="Filter by Sale Date">
               <option value="SALE DATE">MONTH</option>
               <option value="8-2017">Agu 2017</option>
               <option value="7-2017">Jul 2017</option>
@@ -159,6 +162,9 @@
               <option value="10-2016">Okt 2016</option>
               <option value="9-2016">Sep 2016</option>
             </select>
+          </div>
+          <div class="navigation-buttons">
+            <a href="property-data.html" class="btn btn-primary">Lihat Data Properti</a>
           </div>
           <div class="canvas-component-3">
             <div class="container-wrapper">
@@ -315,6 +321,7 @@
                   <h4>Alfonsa Maria</h4>
                   <p>Quality Assurance</p>
               </div>
+            </div>
           </div>
       </footer>
       </div>

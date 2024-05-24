@@ -4,13 +4,17 @@ body {
   overflow-x: hidden;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 .main-header {
   background-color: #ffffff;
   z-index: 1000;
   padding: 20px 40px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   width: 1443px;
   margin: 0 auto;
 }
@@ -25,9 +29,10 @@ body {
 .section {
     background-color: #eeeeee;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     width: 100%;
+    max-width: 1443px;
   }
   
   .section .overlap-group-wrapper {
@@ -204,6 +209,7 @@ body {
   
   .section .text-wrapper {
     position: relative;
+    width: -moz-fit-content;
     width: fit-content;
     margin-top: -1px;
     font-family: "Quicksand-Bold", Helvetica;
@@ -420,6 +426,7 @@ body {
   
   .section .text-wrapper-5 {
     position: relative;
+    width: -moz-fit-content;
     width: fit-content;
     margin-top: -1px;
     font-family: "Montserrat-Regular", Helvetica;
@@ -663,6 +670,7 @@ body {
   
   .section .text-wrapper-8 {
     position: relative;
+    width: -moz-fit-content;
     width: fit-content;
     margin-top: -1px;
     font-family: "Quicksand-Bold", Helvetica;
@@ -687,6 +695,7 @@ body {
   
   .section .text-wrapper-9 {
     position: relative;
+    width: -moz-fit-content;
     width: fit-content;
     margin-top: -1px;
     font-family: "Quicksand-Bold", Helvetica;
@@ -909,6 +918,7 @@ body {
   
   .section .p {
     position: relative;
+    width: -moz-fit-content;
     width: fit-content;
     margin-top: -1px;
     font-family: "Roboto-Regular", Helvetica;
@@ -951,6 +961,7 @@ body {
   
   .section .text-wrapper-12 {
     position: relative;
+    width: -moz-fit-content;
     width: fit-content;
     margin-top: -1px;
     font-family: "Roboto-Regular", Helvetica;
@@ -1003,14 +1014,66 @@ body {
   font-size: 14px;
 }
 
+.navigation-buttons {
+  display: flex;
+  justify-content: right;
+  margin-top: 45px;
+  margin-bottom: 0;
+  position: absolute;
+  width: 300px;
+  height: 40px;
+  top: 501px;
+  left: 1082px;
+}
+
+.btn-primary {
+  padding: 10px 25px;
+  font-size: 16px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
-    .footer-item {
-        width: calc(100% / 4 - 20px);
-    }
+  .footer-item {
+      width: calc(100% / 4 - 20px);
+  }
 }
 
 @media (max-width: 480px) {
-    .footer-item {
-        width: calc(100% / 3 - 20px);
-    }
+  .footer-item {
+      width: calc(100% / 3 - 20px);
+  }
+}
+
+/* Media query untuk tablet */
+@media (max-width: 1024px) {
+.section {
+  flex-direction: column; /* Tata letak vertikal untuk tablet */
+}
+.footer-item {
+  width: calc(100% / 2 - 20px); /* Lebar item footer disesuaikan untuk tablet */
+}
+}
+
+/* Media query untuk mobile */
+@media (max-width: 768px) {
+.footer-item {
+  width: calc(100% / 4 - 20px); 
+}
+}
+
+@media (max-width: 480px) {
+.footer-item {
+  width: calc(100% / 3 - 20px);
+}
+
 }
