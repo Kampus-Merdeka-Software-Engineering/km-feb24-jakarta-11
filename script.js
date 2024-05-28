@@ -271,7 +271,7 @@ document.addEventListener('DOMContentLoaded', function() {
         categoryBuildingCommercialUnitsChart.update();
     }
 
-    function fetchData(borough = 'BOROUGH', category = 'CATEGORY BUILDING', monthYear = 'SALE DATE') {
+    function fetchData(borough = 'BOROUGH', category = 'CATEGORY BUILDING', monthYears = []) {
         return fetch('data.json')
             .then(response => response.json())
             .then(data => {
@@ -282,11 +282,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (category !== 'CATEGORY BUILDING') {
                     filteredData = filteredData.filter(item => item['CATEGORY BUILDING'] === category);
                 }
-                if (monthYear !== 'SALE DATE') {
+                if (monthYears.length > 0) {
                     filteredData = filteredData.filter(item => {
                         const itemDate = new Date(item['SALE DATE']);
                         const itemMonthYear = `${itemDate.getMonth() + 1}-${itemDate.getFullYear()}`;
-                        return itemMonthYear === monthYear;
+                        return monthYears.includes(itemMonthYear);
                     });
                 }
 
@@ -350,9 +350,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function updateAverageTotalUnits(data) {
         const totalUnits = data.reduce((acc, item) => acc + parseInt(item['TOTAL UNITS'], 10), 0);
-        const formattedUnits = new Intl.NumberFormat('id-ID').format(totalUnits / 1000) + ' rb';
+        const formattedUnits = new Intl.NumberFormat('id-ID').format(totalUnits / 1000) + '';
         document.getElementById('avgTotalUnitsValue').textContent = formattedUnits;
     }
+
 
     function formatCurrency(value) {
         const formatter = new Intl.NumberFormat('id-ID', {
@@ -366,11 +367,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Menggunakan singkatan untuk nilai besar
         if (value >= 1000000000) {
-            return `${(value / 1000000000).toFixed(2)} M`;
+            return `${(value / 1000000000).toFixed(2)} B`;
         } else if (value >= 1000000) {
-            return `${(value / 1000000).toFixed(2)} jt`;
+            return `${(value / 1000000).toFixed(2)} M`;
         } else if (value >= 1000) {
-            return `${(value / 1000).toFixed(2)} rb`;
+            return `${(value / 1000).toFixed(2)} K`;
         }
 
         return formattedValue;
@@ -589,6 +590,37 @@ document.addEventListener('DOMContentLoaded', function() {
         const hue = Math.floor(Math.random() * 360);
         return `hsl(${hue}, 100%, 50%)`;
     }
+
+    $(document).ready(function() {
+        $('#monthYearFilter').select2({
+            placeholder: "MONTH",
+            allowClear: true
+        });
+
+        $('#boroughFilter').on('change', function() {
+            const selectedBorough = this.value;
+            const selectedCategory = $('#buildingCategoryFilter').val();
+            const selectedMonthYears = $('#monthYearFilter').val();
+            fetchData(selectedBorough, selectedCategory, selectedMonthYears);
+            addBoroughMarkers(selectedBorough);
+        });
+
+        $('#buildingCategoryFilter').on('change', function() {
+            const selectedCategory = this.value;
+            const selectedBorough = $('#boroughFilter').val();
+            const selectedMonthYears = $('#monthYearFilter').val();
+            fetchData(selectedBorough, selectedCategory, selectedMonthYears);
+        });
+
+        $('#monthYearFilter').on('change', function() {
+            const selectedMonthYears = $(this).val();
+            const selectedBorough = $('#boroughFilter').val();
+            const selectedCategory = $('#buildingCategoryFilter').val();
+            fetchData(selectedBorough, selectedCategory, selectedMonthYears);
+        });
+
+        fetchData('BOROUGH', 'CATEGORY BUILDING', []);
+    });
 
     document.getElementById('boroughFilter').addEventListener('change', function() {
         const selectedBorough = this.value;

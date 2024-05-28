@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
   <head>
     <!-- Ini adalah bagian header dari HTML yang berisi metadata dan link ke CSS/JS -->
     <title>Website Dashboard - SE - Jakarta - Team 11</title>
@@ -12,6 +12,8 @@
     <script src="script.js"></script>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="script.js"></script>
   </head>
@@ -35,27 +37,27 @@
             </div>
         </div>
         <div class="section">
-          <div class="top-neighborhood">
+          <div class="Average-Building-Age">
             <canvas id="averageBuildingAgeChart"></canvas>
           </div>
         </div>
         <div class="section">
-          <div class="average-building-age">
+          <div class="building-commercial">
             <canvas id="categoryBuildingCommercialUnitsChart"></canvas>
           </div>
         </div>
         <div class="section">
-          <div class="property-sales">
+          <div class="location-property-sales">
             <div id="salesMap"></div>
           </div>
         </div>
         <div class="section">
-          <div class="building-category">
+          <div class="top-neighborhood">
             <canvas id="topNeighborhoodSalesChart"></canvas>
           </div>
         </div>
         <div class="section">
-          <div class="Building-Commercial">
+          <div class="Building-Residential">
             <canvas id="categoryBuildingResidentialUnitsChart"></canvas>
           </div>
         </div>
@@ -103,51 +105,52 @@
           <div class="canvas-component-2">
             <select id="buildingCategoryFilter" class="filter-dropdown" aria-label="Filter by Building Category">
               <option value="CATEGORY BUILDING">CATEGORY BUILDING</option>
-              <option value="WAREHOUSES">WAREHOUSES</option>
+              <option value="ASYLUMS AND HOMES">ASYLUMS AND HOMES</option>
+              <option value="COMMERCIAL CONDOS">COMMERCIAL CONDOS</option>
+              <option value="COMMERCIAL GARAGES">COMMERCIAL GARAGES</option>
+              <option value="COMMERCIAL VACANT LAND">COMMERCIAL VACANT LAND</option>
+              <option value="CONDO">CONDO</option>
+              <option value="CONDO COOPS">CONDO COOPS</option>
+              <option value="CONDO CULTURAL/MEDICAL/EDUCATIONAL/ETC">CONDO CULTURAL/MEDICAL/EDUCATIONAL/ETC</option>
+              <option value="CONDO HOTELS">CONDO HOTELS</option>
+              <option value="CONDO NON">CONDO NON</option>
+              <option value="CONDO OFFICE BUILDINGS">CONDO OFFICE BUILDINGS</option>
+              <option value="CONDO PARKING">CONDO PARKING</option>
+              <option value="CONDO STORE BUILDINGS">CONDO STORE BUILDINGS</option>
+              <option value="CONDO TERRACES/GARDENS/CABANAS">CONDO TERRACES/GARDENS/CABANAS</option>
+              <option value="CONDO WAREHOUSES/FACTORY/INDUS">CONDO WAREHOUSES/FACTORY/INDUS</option>
+              <option value="CONDOS">CONDOS</option>
+              <option value="COOPS">COOPS</option>
+              <option value="EDUCATIONAL FACILITIES">EDUCATIONAL FACILITIES</option>
+              <option value="FACTORIES">FACTORIES</option>
+              <option value="HOSPITAL AND HEALTH FACILITIES">HOSPITAL AND HEALTH FACILITIES</option>
+              <option value="INDOOR PUBLIC AND CULTURAL FACILITIES">INDOOR PUBLIC AND CULTURAL FACILITIES</option>
+              <option value="LOFT BUILDINGS">LOFT BUILDINGS</option>
+              <option value="LUXURY HOTELS">LUXURY HOTELS</option>
+              <option value="OFFICE BUILDINGS">OFFICE BUILDINGS</option>
               <option value="ONE FAMILY DWELLINGS">ONE FAMILY DWELLINGS</option>
-              <option value="TWO FAMILY DWELLINGS">TWO FAMILY DWELLINGS</option>
-              <option value="THREE FAMILY DWELLINGS">THREE FAMILY DWELLINGS</option>
-              <option value="TRANSPORTATION FACILITIES">TRANSPORTATION FACILITIES</option>
-              <option value="THEATRES">THEATRES</option>
+              <option value="OTHER HOTELS">OTHER HOTELS</option>
+              <option value="OUTDOOR RECREATIONAL FACILITIES">OUTDOOR RECREATIONAL FACILITIES</option>
+              <option value="RELIGIOUS FACILITIES">RELIGIOUS FACILITIES</option>
+              <option value="RENTALS">RENTALS</option>
+              <option value="SELECTED GOVERNMENTAL FACILITIES">SELECTED GOVERNMENTAL FACILITIES</option>
+              <option value="SPECIAL CONDO BILLING LOTS">SPECIAL CONDO BILLING LOTS</option>
+              <option value="STORE BUILDINGS">STORE BUILDINGS</option>
               <option value="TAX CLASS 1">TAX CLASS 1</option>
-              <option value="TAX CLASS 1 VACANT LAND">TAX CLASS 1 VACANT LAND</option>
               <option value="TAX CLASS 1 CONDOS">TAX CLASS 1 CONDOS</option>
+              <option value="TAX CLASS 1 VACANT LAND">TAX CLASS 1 VACANT LAND</option>
               <option value="TAX CLASS 3">TAX CLASS 3</option>
               <option value="TAX CLASS 4">TAX CLASS 4</option>
-              <option value="STORE BUILDINGS">STORE BUILDINGS</option>
-              <option value="SPECIAL CONDO BILLING LOTS">SPECIAL CONDO BILLING LOTS</option>
-              <option value="SELECTED GOVERNMENTAL FACILITIES">SELECTED GOVERNMENTAL FACILITIES</option>
-              <option value="RENTALS">RENTALS</option>
-              <option value="RELIGIOUS FACILITIES">RELIGIOUS FACILITIES</option>
-              <option value="OUTDOOR RECREATIONAL FACILITIES">OUTDOOR RECREATIONAL FACILITIES</option>
-              <option value="OTHER HOTELS">OTHER HOTELS</option>
-              <option value="OFFICE BUILDINGS">OFFICE BUILDINGS</option>
-              <option value="LUXURY HOTELS">LUXURY HOTELS</option>
-              <option value="LOFT BUILDINGS">LOFT BUILDINGS</option>
-              <option value="INDOOR PUBLIC AND CULTURAL FACILITIES">INDOOR PUBLIC AND CULTURAL FACILITIES</option>
-              <option value="HOSPITAL AND HEALTH FACILITIES">HOSPITAL AND HEALTH FACILITIES</option>
-              <option value="FACTORIES">FACTORIES</option>
-              <option value="EDUCATIONAL FACILITIES">EDUCATIONAL FACILITIES</option>
-              <option value="COOPS">COOPS</option>
-              <option value="CONDOS">CONDOS</option>
-              <option value="CONDO WAREHOUSES/FACTORY/INDUS">CONDO WAREHOUSES/FACTORY/INDUS</option>
-              <option value="CONDO TERRACES/GARDENS/CABANAS">CONDO TERRACES/GARDENS/CABANAS</option>
-              <option value="CONDO STORE BUILDINGS">CONDO STORE BUILDINGS</option>
-              <option value="CONDO PARKING">CONDO PARKING</option>
-              <option value="CONDO OFFICE BUILDINGS">CONDO OFFICE BUILDINGS</option>
-              <option value="CONDO NON">CONDO NON</option>
-              <option value="CONDO HOTELS">CONDO HOTELS</option>
-              <option value="CONDO CULTURAL/MEDICAL/EDUCATIONAL/ETC">CONDO CULTURAL/MEDICAL/EDUCATIONAL/ETC</option>
-              <option value="CONDO COOPS">CONDO COOPS</option>
-              <option value="CONDO">CONDO</option>
-              <option value="COMMERCIAL VACANT LAND">COMMERCIAL VACANT LAND</option>
-              <option value="COMMERCIAL GARAGES">COMMERCIAL GARAGES</option>
-              <option value="COMMERCIAL CONDOS">COMMERCIAL CONDOS</option>
-              <option value="ASYLUMS AND HOMES">ASYLUMS AND HOMES</option>
+              <option value="THEATRES">THEATRES</option>
+              <option value="THREE FAMILY DWELLINGS">THREE FAMILY DWELLINGS</option>
+              <option value="TRANSPORTATION FACILITIES">TRANSPORTATION FACILITIES</option>
+              <option value="TWO FAMILY DWELLINGS">TWO FAMILY DWELLINGS</option>
+              <option value="WAREHOUSES">WAREHOUSES</option>
+
             </select>
           </div>
           <div class="canvas-component-10">
-            <select id="monthYearFilter" class="filter-dropdown" aria-label="Filter by Sale Date">
+            <select id="monthYearFilter" class="filter-dropdown" aria-label="Filter by Sale Date" multiple="multiple">
               <option value="SALE DATE">MONTH</option>
               <option value="8-2017">Agu 2017</option>
               <option value="7-2017">Jul 2017</option>
@@ -164,7 +167,7 @@
             </select>
           </div>
           <div class="navigation-buttons">
-            <a href="property-data.html" class="btn btn-primary">Lihat Data Properti</a>
+            <a href="property-data.html" class="btn btn-primary">View Property Data</a>
           </div>
           <div class="canvas-component-3">
             <div class="container-wrapper">

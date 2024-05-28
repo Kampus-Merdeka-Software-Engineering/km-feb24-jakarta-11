@@ -1,8 +1,9 @@
 body {
   padding-left: calc((100vw - 1443px) / 2);
   padding-right: calc((100vw - 1443px) / 2);
-  overflow-x: hidden;
 }
+
+
 
 * {
   box-sizing: border-box;
@@ -23,8 +24,7 @@ body {
   margin: 0;
   font-size: 28px;
   color: #333;
-  font-family: 'Arial', sans-serif;
-}
+  font-family: "Montserrat-Regular", Helvetica;}
 
 .section {
     background-color: #eeeeee;
@@ -32,13 +32,13 @@ body {
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    max-width: 1443px;
   }
   
   .section .overlap-group-wrapper {
     background-color: #eeeeee;
+    overflow-x: hidden;
     width: 1443px;
-    height: 2400px;
+    height: 100%;
   }
   
   .section .overlap-group {
@@ -66,14 +66,10 @@ body {
     top: 0;
     right: 0;
     left: 0;
-    background-color: var(--color-whitesmoke-100);
     height: 2400px;
-    font-size: var(--font-size-sm);
-    color: var(--color-black);
-    font-family: var(--font-montserrat);
   }
   
-  .section .property-sales {
+  .section .location-property-sales {
     position: absolute;
     width: 603px;
     height: 353px;
@@ -82,7 +78,7 @@ body {
     object-fit: cover;
   }
 
-  .property-sales #salesMap {
+  .location-property-sales #salesMap {
     height: 270px;
     margin: 20px;
     border: 1px solid #ccc;
@@ -99,7 +95,7 @@ body {
 }
 
   
-  .section .building-category {
+  .section .top-neighborhood {
     position: absolute;
     width: 624px;
     height: 300px;
@@ -108,7 +104,7 @@ body {
     object-fit: cover;
   }
   
-  .section .Building-Commercial {
+  .section .Building-Residential {
     position: absolute;
     width: 824px;
     height: 300px;
@@ -117,7 +113,7 @@ body {
     object-fit: cover;
   }
   
-  .section .top-neighborhood {
+  .section .Average-Building-Age {
     position: absolute;
     width: 933px;
     height: 300px;
@@ -126,7 +122,7 @@ body {
     object-fit: cover;
   }
   
-  .section .average-building-age {
+  .section .building-commercial {
     position: absolute;
     width: 800px; 
     height: 300px;
@@ -212,7 +208,7 @@ body {
     width: -moz-fit-content;
     width: fit-content;
     margin-top: -1px;
-    font-family: "Quicksand-Bold", Helvetica;
+    font-family: "Montserrat-Regular", Helvetica;
     font-weight: 700;
     color: #424242;
     font-size: 20px;
@@ -673,7 +669,7 @@ body {
     width: -moz-fit-content;
     width: fit-content;
     margin-top: -1px;
-    font-family: "Quicksand-Bold", Helvetica;
+    font-family: "Montserrat-Regular", Helvetica;
     font-weight: 700;
     color: #424242;
     font-size: 40px;
@@ -698,7 +694,7 @@ body {
     width: -moz-fit-content;
     width: fit-content;
     margin-top: -1px;
-    font-family: "Quicksand-Bold", Helvetica;
+    font-family: "Montserrat-Regular", Helvetica;
     font-weight: 700;
     color: #2196f3;
     font-size: 40px;
@@ -921,7 +917,7 @@ body {
     width: -moz-fit-content;
     width: fit-content;
     margin-top: -1px;
-    font-family: "Roboto-Regular", Helvetica;
+    font-family: "Montserrat-Regular", Helvetica;
     font-weight: 400;
     color: #000000;
     font-size: 10px;
@@ -964,7 +960,7 @@ body {
     width: -moz-fit-content;
     width: fit-content;
     margin-top: -1px;
-    font-family: "Roboto-Regular", Helvetica;
+    font-family: "Montserrat-Regular", Helvetica;
     font-weight: 400;
     color: #000000;
     font-size: 10px;
@@ -1042,38 +1038,69 @@ body {
   cursor: pointer;
 }
 
-@media (max-width: 768px) {
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+@media (min-width: 1281px) {
+  /* CSS */
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .section {
+    width: 100%;
+  }
   .footer-item {
-      width: calc(100% / 4 - 20px);
+    width: calc(100% / 5 - 20px);
   }
 }
 
-@media (max-width: 480px) {
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) {
+  .section {
+    width: 100%;
+  }
   .footer-item {
-      width: calc(100% / 3 - 20px);
+    width: calc(100% / 5 - 20px);
   }
 }
 
-/* Media query untuk tablet */
-@media (max-width: 1024px) {
-.section {
-  flex-direction: column; /* Tata letak vertikal untuk tablet */
-}
-.footer-item {
-  width: calc(100% / 2 - 20px); /* Lebar item footer disesuaikan untuk tablet */
-}
-}
-
-/* Media query untuk mobile */
-@media (max-width: 768px) {
-.footer-item {
-  width: calc(100% / 4 - 20px); 
-}
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .section {
+    width: 100%;
+  }
+  .footer-item {
+    width: calc(100% / 5 - 20px);
+  }
 }
 
-@media (max-width: 480px) {
-.footer-item {
-  width: calc(100% / 3 - 20px);
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+@media (min-width: 481px) and (max-width: 767px) {
+  .footer-item {
+    width: calc(100% / 4 - 20px);
+  }
 }
 
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+@media (min-width: 320px) and (max-width: 480px) {
+  .footer-item {
+    width: calc(100% / 4 - 20px);
+  }
 }
