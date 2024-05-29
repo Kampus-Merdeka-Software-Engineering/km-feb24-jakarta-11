@@ -1038,6 +1038,10 @@ body {
   cursor: pointer;
 }
 
+#monthYearFilter {
+  color: #ccc;
+}
+
 /* 
   ##Device = Desktops
   ##Screen = 1281px to higher resolution desktops
