@@ -5,329 +5,340 @@
     <title>Website Dashboard - SE - Jakarta - Team 11</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="script.js"></script>
   </head>
-  <body>
-    <!-- Konten utama halaman berada di sini -->
-    <div class="section">
-      <div class="overlap-group-wrapper">
-        <div class="overlap-group">
-          <div class="overlay-shadow">
-            <div class="report">
-            </div>
-          </div>
-          <!-- Ini adalah bagian body dari HTML yang berisi konten utama halaman -->
-    <header class="main-header">
-      <!-- Ini adalah header dalam body yang berisi judul utama halaman -->
-      <h1>Dashboard - Team 11</h1>
-    </header>
-          <div class="section">
-            <div class="property-price-by">
-                <canvas id="propertyPriceByBoroughChart"></canvas>
-            </div>
-        </div>
-        <div class="section">
-          <div class="Average-Building-Age">
-            <canvas id="averageBuildingAgeChart"></canvas>
-          </div>
-        </div>
-        <div class="section">
-          <div class="building-commercial">
-            <canvas id="categoryBuildingCommercialUnitsChart"></canvas>
-          </div>
-        </div>
-        <div class="section">
-          <div class="location-property-sales">
-            <div id="salesMap"></div>
-          </div>
-        </div>
-        <div class="section">
-          <div class="top-neighborhood">
-            <canvas id="topNeighborhoodSalesChart"></canvas>
-          </div>
-        </div>
-        <div class="section">
-          <div class="Building-Residential">
-            <canvas id="categoryBuildingResidentialUnitsChart"></canvas>
-          </div>
-        </div>
-        <div class="total-unit-sales-per-wrapper">
-          <div class="total-unit-sales-per">
-            <canvas id="totalUnitSalesPerMonthChart"></canvas>
-          </div>
-        </div>
-          <div class="canvas-component">
-            <div class="background">
-              <div class="container"><div class="image-component"></div></div>
-            </div>
-          </div>
-          <div class="PropertySalesLocation-component">
-            <div class="container-wrapper">
-              <div class="div-wrapper">
-                <div class="textbox-wrapper">
-                  <div class="textbox"><p class="text-wrapper">Property Sales Location in New York</p></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="background-wrapper">
-            <div class="totalunits-label2">
-              <div class="container-2">
-                <div class="kpimetric-wrapper">
-                  <div class="container-3">
-                    <div class="container-4"><div class="text-wrapper-2" id="avgTotalUnitsLabel">TOTAL UNITS</div></div>
-                    <div class="container-5"><div class="text-wrapper-3" id="avgTotalUnitsValue"></div></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="background-shadow-wrapper">
-            <select id="boroughFilter" class="filter-dropdown" aria-label="Filter by Borough">
-              <option value="BOROUGH">BOROUGH</option>
-              <option value="Staten Island">Staten Island</option>
-              <option value="Queens">Queens</option>
-              <option value="Manhattan">Manhattan</option>
-              <option value="Brooklyn">Brooklyn</option>
-              <option value="Bronx">Bronx</option>
-            </select>
-          </div>
-          <div class="canvas-component-2">
-            <select id="buildingCategoryFilter" class="filter-dropdown" aria-label="Filter by Building Category">
-              <option value="CATEGORY BUILDING">CATEGORY BUILDING</option>
-              <option value="ASYLUMS AND HOMES">ASYLUMS AND HOMES</option>
-              <option value="COMMERCIAL CONDOS">COMMERCIAL CONDOS</option>
-              <option value="COMMERCIAL GARAGES">COMMERCIAL GARAGES</option>
-              <option value="COMMERCIAL VACANT LAND">COMMERCIAL VACANT LAND</option>
-              <option value="CONDO">CONDO</option>
-              <option value="CONDO COOPS">CONDO COOPS</option>
-              <option value="CONDO CULTURAL/MEDICAL/EDUCATIONAL/ETC">CONDO CULTURAL/MEDICAL/EDUCATIONAL/ETC</option>
-              <option value="CONDO HOTELS">CONDO HOTELS</option>
-              <option value="CONDO NON">CONDO NON</option>
-              <option value="CONDO OFFICE BUILDINGS">CONDO OFFICE BUILDINGS</option>
-              <option value="CONDO PARKING">CONDO PARKING</option>
-              <option value="CONDO STORE BUILDINGS">CONDO STORE BUILDINGS</option>
-              <option value="CONDO TERRACES/GARDENS/CABANAS">CONDO TERRACES/GARDENS/CABANAS</option>
-              <option value="CONDO WAREHOUSES/FACTORY/INDUS">CONDO WAREHOUSES/FACTORY/INDUS</option>
-              <option value="CONDOS">CONDOS</option>
-              <option value="COOPS">COOPS</option>
-              <option value="EDUCATIONAL FACILITIES">EDUCATIONAL FACILITIES</option>
-              <option value="FACTORIES">FACTORIES</option>
-              <option value="HOSPITAL AND HEALTH FACILITIES">HOSPITAL AND HEALTH FACILITIES</option>
-              <option value="INDOOR PUBLIC AND CULTURAL FACILITIES">INDOOR PUBLIC AND CULTURAL FACILITIES</option>
-              <option value="LOFT BUILDINGS">LOFT BUILDINGS</option>
-              <option value="LUXURY HOTELS">LUXURY HOTELS</option>
-              <option value="OFFICE BUILDINGS">OFFICE BUILDINGS</option>
-              <option value="ONE FAMILY DWELLINGS">ONE FAMILY DWELLINGS</option>
-              <option value="OTHER HOTELS">OTHER HOTELS</option>
-              <option value="OUTDOOR RECREATIONAL FACILITIES">OUTDOOR RECREATIONAL FACILITIES</option>
-              <option value="RELIGIOUS FACILITIES">RELIGIOUS FACILITIES</option>
-              <option value="RENTALS">RENTALS</option>
-              <option value="SELECTED GOVERNMENTAL FACILITIES">SELECTED GOVERNMENTAL FACILITIES</option>
-              <option value="SPECIAL CONDO BILLING LOTS">SPECIAL CONDO BILLING LOTS</option>
-              <option value="STORE BUILDINGS">STORE BUILDINGS</option>
-              <option value="TAX CLASS 1">TAX CLASS 1</option>
-              <option value="TAX CLASS 1 CONDOS">TAX CLASS 1 CONDOS</option>
-              <option value="TAX CLASS 1 VACANT LAND">TAX CLASS 1 VACANT LAND</option>
-              <option value="TAX CLASS 3">TAX CLASS 3</option>
-              <option value="TAX CLASS 4">TAX CLASS 4</option>
-              <option value="THEATRES">THEATRES</option>
-              <option value="THREE FAMILY DWELLINGS">THREE FAMILY DWELLINGS</option>
-              <option value="TRANSPORTATION FACILITIES">TRANSPORTATION FACILITIES</option>
-              <option value="TWO FAMILY DWELLINGS">TWO FAMILY DWELLINGS</option>
-              <option value="WAREHOUSES">WAREHOUSES</option>
+<body class="w3-black">
+      <!-- Icon Bar (Sidebar - hidden on small screens) -->
+      <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+        <!-- Avatar image in top left corner -->
+        <img src="./Image/number-11.png" style="width:100%">
+        <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
+            <i class="fa fa-home w3-xxlarge"></i>
+            <p>Beranda</p>
+        </a>
+        <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+            <i class="fa fa-info-circle w3-xxlarge"></i>
+            <p>Tentang</p>
+        </a>
+        <a href="#chart" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+            <i class="fa fa-area-chart w3-xxlarge"></i>
+            <p>Chart</p>
+        </a>
+        <a href="property-data.html" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+            <i class="fa fa-table w3-xxlarge"></i>
+            <p>Data</p>
+        </a>
+    </nav>
 
-            </select>
-          </div>
-          <div class="canvas-component-10">
-            <select id="monthYearFilter" class="filter-dropdown" aria-label="Filter by Sale Date" multiple="multiple">
-              <option value="SALE DATE">MONTH</option>
-              <option value="8-2017">Agu 2017</option>
-              <option value="7-2017">Jul 2017</option>
-              <option value="6-2017">Jun 2017</option>
-              <option value="5-2017">Mei 2017</option>
-              <option value="4-2017">Apr 2017</option>
-              <option value="3-2017">Mar 2017</option>
-              <option value="2-2017">Feb 2017</option>
-              <option value="1-2017">Jan 2017</option>
-              <option value="12-2016">Des 2016</option>
-              <option value="11-2016">Nov 2016</option>
-              <option value="10-2016">Okt 2016</option>
-              <option value="9-2016">Sep 2016</option>
-            </select>
-          </div>
-          <div class="navigation-buttons">
-            <a href="property-data.html" class="btn btn-primary">View Property Data</a>
-          </div>
-          <div class="canvas-component-3">
-            <div class="container-wrapper">
-              <div class="container-9">
-                <div class="PropertyPricebyBorough-textbox-wrapper">
-                  <div class="PropertyPricebyBorough-textbox"><div class="text-wrapper">Property Price by Borough</div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="canvas-component-4">
-            <div class="container-wrapper">
-              <div class="container-10">
-                <div class="textbox-wrapper-2">
-                  <div class="textbox-2"><div class="text-wrapper">Building Category Distribution</div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="canvas-component-5">
-            <div class="totalunits-label2">
-              <div class="container-11">
-                <div class="kpimetric-wrapper">
-                  <div class="container-3">
-                    <div class="container-12"><div class="text-wrapper-6" id="avgSalePriceLabel">AVG. SALE PRICE</div></div>
-                    <div class="container-13"><div class="text-wrapper-7" id="avgSalePriceValue"></div></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="canvas-component-6">
-            <div class="container-wrapper">
-              <div class="container-10">
-                <div class="textbox-wrapper-3">
-                  <div class="textbox-3"><div class="text-wrapper">Top 10 Neighborhood Sales</div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="canvas-component-7">
-            <div class="background-2">
-              <div class="container-14">
-                <div class="textbox-wrapper-4">
-                  <div class="textbox-4">
-                    <div class="container-15"><div class="text-wrapper-8">NEW YORK PROPERTY SALES</div></div>
-                    <div class="container-16"><div class="text-wrapper-9">Business Dashboard</div></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="canvas-component-8">
-            <div class="background-3">
-              <div class="image-component-wrapper"><div class="image-component-2"></div></div>
-            </div>
-          </div>
-          <div class="canvas-component-9">
-            <div class="container-wrapper">
-              <div class="container-10">
-                <div class="textbox-wrapper-5">
-                  <div class="textbox-5"><div class="text-wrapper">Average Building Age</div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="canvas-component-11">
-            <div class="totalunits-label2">
-              <div class="container-17">
-                <div class="kpimetric-wrapper">
-                  <div class="container-3">
-                    <div class="container-18"><div class="text-wrapper-10" id="avgLandSquareFeetLabel">AVG. LAND SQUARE FEET</div></div>
-                    <div class="container-19"><div class="text-wrapper-11" id="avgLandSquareFeetValue"></div></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="canvas-component-12">
-            <div class="container-wrapper">
-              <div class="container-10">
-                <div class="textbox-wrapper-6">
-                  <div class="textbox-6"><p class="text-wrapper">Total Unit Sales per Month</p></div>
-                </div>
-              </div>
-            </div>
-          </div>
+    <!-- Navbar on small screens (Hidden on medium and large screens) -->
+    <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+        <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
+            <a href="#" class="w3-bar-item w3-button" style="width:25% !important">BERANDA</a>
+            <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">TENTANG</a>
+            <a href="#photos" class="w3-bar-item w3-button" style="width:25% !important">CHART</a>
+            <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">DATA</a>
         </div>
-        <!-- Ini adalah footer dalam body yang berisi informasi team -->
-        <footer>
-          <div class="footer-container">
-              <div class="footer-item">
-                  <img src="./Image/aprijal.png" alt="Image 1">
-                  <h4>Ahmad Aprijal</h4>
-                  <p>Leader</p>
-              </div>
-              <div class="footer-item">
-                  <img src="./Image/endi.png" alt="Image 2">
-                  <h4>Endi Rahman</h4>
-                  <p>Front-End Engineer</p>
-              </div>
-              <div class="footer-item">
-                  <img src="./Image/dika.png" alt="Image 3">
-                  <h4>Fadillah Candrika P.</h4>
-                  <p>Front-End Engineer</p>
-              </div>
-              <div class="footer-item">
-                  <img src="./Image/yogie.png" alt="Image 4">
-                  <h4>Yogie Arifansyah Pohan</h4>
-                  <p>Front-End Engineer</p>
-              </div>
-              <div class="footer-item">
-                  <img src="./Image/fia.png" alt="Image 5">
-                  <h4>Fia Hamasyatus S.</h4>
-                  <p>Front-End Engineer</p>
-              </div>
-              <div class="footer-item">
-                  <img src="./Image/adi.png" alt="Image 6">
-                  <h4>Adi Aris</h4>
-                  <p>Front-End Engineer</p>
-              </div>
-              <div class="footer-item">
-                  <img src="./Image/ayu.png" alt="Image 7">
-                  <h4>Ayu Aulia</h4>
-                  <p>Deployment Team</p>
-              </div>
-              <div class="footer-item">
-                  <img src="./Image/malisda.png" alt="Image 8">
-                  <h4>Malisda Daud</h4>
-                  <p>Pitch Deck Team</p>
-              </div>
-              <div class="footer-item">
-                  <img src="./Image/dhea.png" alt="Image 9">
-                  <h4>Dhea Puspa</h4>
-                  <p>Pitch Deck Team</p>
-              </div>
-              <div class="footer-item">
-                  <img src="./Image/kara.png" alt="Image 10">
-                  <h4>Kara Sevania</h4>
-                  <p>Pitch Deck Team</p>
-              </div>
-              <div class="footer-item">
-                  <img src="./Image/bella.png" alt="Image 11">
-                  <h4>Salsabila Tyas A.</h4>
-                  <p>Quality Assurance</p>
-              </div>
-              <div class="footer-item">
-                  <img src="./Image/putri.png" alt="Image 12">
-                  <h4>Putri Aprillia</h4>
-                  <p>Quality Assurance</p>
-              </div>
-              <div class="footer-item">
-                  <img src="./Image/oca.png" alt="Image 13">
-                  <h4>Alfonsa Maria</h4>
-                  <p>Quality Assurance</p>
+    </div>
+
+    <!-- Page Content -->
+    <div class="w3-padding-large" id="main">
+        <!-- Header/Home -->
+        <header class="w3-container w3-padding-32 w3-center w3-text-black" id="home">
+            <h1 class="w3-jumbo" style="font-weight: 900;">NYC Property Sales</h1>
+            <p>Jakarta Team 11</p>
+        </header>
+
+        <!-- About Section -->
+        <div class="w3-content w3-justify w3-text-black w3-padding-64" id="about">
+            <h2 class="w3-text-black" style="font-weight: 700;">About</h2>
+            <hr style="width:200px" class="w3-black">
+            <p style="font-size: x-large;" data-aos="fade-up" data-aos-duration="1500">Menampilkan dashboard penjualan properti di NYC tahun 2016 hingga 2017 untuk
+                mempermudah menganalisis
+                data, sehingga dapat
+                mengidentifikasi masalah dan mencari solusi untuk meningkatkan penjualan properti di berbagai borough
+                dengan filter borough
+                yang telah disediakan.
+            </p>
+            <!-- End About Section -->
+        </div>
+
+    <div class="container" id="chart">
+        <header class="main-header" >
+          <div class="overlay">
+            <h1>NEW YORK PROPERTY SALES</h1>
+            <h2>Business Dashboard</h2>
+          </div>
+        </header>
+
+        <!-- Scorecard -->
+        <section class="stats" data-aos="fade-up" data-aos-duration="1500">
+            <div class="stat" >
+                <h3>Total Units</h3>
+                <p id="avgTotalUnitsValue"></p>
+            </div>
+            <div class="stat">
+                <h3>Avg. Land Square Feet</h3>
+                <p id="avgLandSquareFeetValue"></p>
+            </div>
+            <div class="stat">
+                <h3>Avg. Sale Price</h3>
+                <p id="avgSalePriceValue"></p>
+            </div>
+
+            <div class="dropdown">
+            <div class="dropdown-select-city" style="display: flex; height: 31px; margin-bottom: 10px">
+              <select id="boroughFilter" class="filter-dropdown" aria-label="Filter by Borough" style="width: 300px;">
+                <option value="BOROUGH">BOROUGH</option>
+                <option value="Bronx">Bronx</option>
+                <option value="Brooklyn">Brooklyn</option>
+                <option value="Manhattan">Manhattan</option>
+                <option value="Queens">Queens</option>
+                <option value="Staten Island">Staten Island</option>
+              </select>
+            </div>
+            <div class="dropdown-select-building" style="display: flex; height: 31px; margin-bottom: 10px;">
+              <select id="buildingCategoryFilter" class="filter-dropdown" aria-label="Filter by Building Category" style="width: 300px;">
+                <option value="CATEGORY BUILDING">CATEGORY BUILDING</option>
+                <option value="ASYLUMS AND HOMES">ASYLUMS AND HOMES</option>
+                <option value="COMMERCIAL CONDOS">COMMERCIAL CONDOS</option>
+                <option value="COMMERCIAL GARAGES">COMMERCIAL GARAGES</option>
+                <option value="COMMERCIAL VACANT LAND">COMMERCIAL VACANT LAND</option>
+                <option value="CONDO">CONDO</option>
+                <option value="CONDO COOPS">CONDO COOPS</option>
+                <option value="CONDO CULTURAL/MEDICAL/EDUCATIONAL/ETC">CONDO CULTURAL/MEDICAL/EDUCATIONAL/ETC</option>
+                <option value="CONDO HOTELS">CONDO HOTELS</option>
+                <option value="CONDO NON">CONDO NON</option>
+                <option value="CONDO OFFICE BUILDINGS">CONDO OFFICE BUILDINGS</option>
+                <option value="CONDO PARKING">CONDO PARKING</option>
+                <option value="CONDO STORE BUILDINGS">CONDO STORE BUILDINGS</option>
+                <option value="CONDO TERRACES/GARDENS/CABANAS">CONDO TERRACES/GARDENS/CABANAS</option>
+                <option value="CONDO WAREHOUSES/FACTORY/INDUS">CONDO WAREHOUSES/FACTORY/INDUS</option>
+                <option value="CONDOS">CONDOS</option>
+                <option value="COOPS">COOPS</option>
+                <option value="EDUCATIONAL FACILITIES">EDUCATIONAL FACILITIES</option>
+                <option value="FACTORIES">FACTORIES</option>
+                <option value="HOSPITAL AND HEALTH FACILITIES">HOSPITAL AND HEALTH FACILITIES</option>
+                <option value="INDOOR PUBLIC AND CULTURAL FACILITIES">INDOOR PUBLIC AND CULTURAL FACILITIES</option>
+                <option value="LOFT BUILDINGS">LOFT BUILDINGS</option>
+                <option value="LUXURY HOTELS">LUXURY HOTELS</option>
+                <option value="OFFICE BUILDINGS">OFFICE BUILDINGS</option>
+                <option value="ONE FAMILY DWELLINGS">ONE FAMILY DWELLINGS</option>
+                <option value="OTHER HOTELS">OTHER HOTELS</option>
+                <option value="OUTDOOR RECREATIONAL FACILITIES">OUTDOOR RECREATIONAL FACILITIES</option>
+                <option value="RELIGIOUS FACILITIES">RELIGIOUS FACILITIES</option>
+                <option value="RENTALS">RENTALS</option>
+                <option value="SELECTED GOVERNMENTAL FACILITIES">SELECTED GOVERNMENTAL FACILITIES</option>
+                <option value="SPECIAL CONDO BILLING LOTS">SPECIAL CONDO BILLING LOTS</option>
+                <option value="STORE BUILDINGS">STORE BUILDINGS</option>
+                <option value="TAX CLASS 1">TAX CLASS 1</option>
+                <option value="TAX CLASS 1 CONDOS">TAX CLASS 1 CONDOS</option>
+                <option value="TAX CLASS 1 VACANT LAND">TAX CLASS 1 VACANT LAND</option>
+                <option value="TAX CLASS 3">TAX CLASS 3</option>
+                <option value="TAX CLASS 4">TAX CLASS 4</option>
+                <option value="THEATRES">THEATRES</option>
+                <option value="THREE FAMILY DWELLINGS">THREE FAMILY DWELLINGS</option>
+                <option value="TRANSPORTATION FACILITIES">TRANSPORTATION FACILITIES</option>
+                <option value="TWO FAMILY DWELLINGS">TWO FAMILY DWELLINGS</option>
+                <option value="WAREHOUSES">WAREHOUSES</option>
+              </select>
+            </div>
+            
+            <div class="dropdown-select-building" style="display: flex; margin-bottom: 10px;">
+              <select id="monthYearFilter" class="filter-dropdown" aria-label="Filter by Sale Date" multiple="multiple" style="width:300px">
+                <option value="SALE DATE">MONTH</option>
+                <option value="8-2017">Agu 2017</option>
+                <option value="7-2017">Jul 2017</option>
+                <option value="6-2017">Jun 2017</option>
+                <option value="5-2017">Mei 2017</option>
+                <option value="4-2017">Apr 2017</option>
+                <option value="3-2017">Mar 2017</option>
+                <option value="2-2017">Feb 2017</option>
+                <option value="1-2017">Jan 2017</option>
+                <option value="12-2016">Des 2016</option>
+                <option value="11-2016">Nov 2016</option>
+                <option value="10-2016">Okt 2016</option>
+                <option value="9-2016">Sep 2016</option>
+              </select>
+            </div>
+            <div class="navigation-buttons">
+              <a href="property-data.html" class="btn btn-primary">View Property Data</a>
+            </div>
+            </div>
+        </section>
+
+        <section class="controls">
+            
+        </section>
+
+        <section class="content" data-aos="fade-up" data-aos-duration="1500">
+            <div class="map">
+                <h3>Property Sales Location in New York</h3>
+                <!-- Map Placeholder -->
+                <div id="map"></div>
+                <div class="section">
+                  <div class="location-property-sales">
+                    <div id="salesMap"></div>
+                  </div>
+                </div>
+            </div>
+            <div class="chart">
+                <h3>Property Price by Borough</h3>
+                <!-- Chart Placeholder -->
+                <div id="chart1"></div>
+                <div class="section">
+                  <div class="property-price-by">
+                      <canvas id="propertyPriceByBoroughChart"></canvas>
+                  </div>
               </div>
             </div>
-          </div>
-      </footer>
-      </div>
+            <div class="chart">
+                <h3>Average Building Age</h3>
+                <!-- Chart Placeholder -->
+                <div id="chart2"></div>
+                <div class="section">
+                  <div class="Average-Building-Age">
+                    <canvas id="averageBuildingAgeChart"></canvas>
+                  </div>
+                </div>
+            </div>
+            <div class="chart">
+                <h3>Top 10 Neighborhood Sales</h3>
+                <!-- Chart Placeholder -->
+                <div id="chart3"></div>
+                <div class="section">
+                  <div class="top-neighborhood">
+                    <canvas id="topNeighborhoodSalesChart"></canvas>
+                  </div>
+                </div>
+            </div>
+            <div class="chart">
+                <h3>Building Category Distribution</h3>
+                <!-- Chart Placeholder -->
+                <div id="chart4"></div>
+                <div class="section">
+                  <div class="Building-Residential">
+                    <canvas id="categoryBuildingResidentialUnitsChart"></canvas>
+                  </div>
+                </div>
+            
+              </div>
+              <div class="chart">
+                  <h3>Building Category Distribution</h3>
+                  <!-- Chart Placeholder -->
+                  <div id="chart5"></div>
+                <div class="section">
+                  <div class="building-commercial">
+                    <canvas id="categoryBuildingCommercialUnitsChart"></canvas>
+                  </div>
+                </div>
+        
+            </div>
+            <div class="chart chart-centers">
+                <h3>Total Unit Sales per Month</h3>
+                <!-- Chart Placeholder -->
+                <div id="chart6"></div>
+                <div class="total-unit-sales-per-wrapper">
+                  <div class="total-unit-sales-per">
+                    <canvas id="totalUnitSalesPerMonthChart"></canvas>
+                  </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="team-member">
+          <h1>Team Members</h1>
+            <div class="team">
+              <div class="team-member-container" data-aos="fade-up" data-aos-duration="1500">
+                <div class="team-member-item">
+                    <img src="./Image/aprijal.png" alt="Image 1">
+                    <h4>Ahmad Aprijal</h4>
+                    <p>Leader</p>
+                </div>
+                <div class="team-member-item">
+                    <img src="./Image/endi.png" alt="Image 2">
+                    <h4>Endi Rahman</h4>
+                    <p>Front-End Engineer</p>
+                </div>
+                <div class="team-member-item">
+                    <img src="./Image/dika.png" alt="Image 3">
+                    <h4>Fadillah Candrika P.</h4>
+                    <p>Front-End Engineer</p>
+                </div>
+                <div class="team-member-item">
+                    <img src="./Image/yogie.png" alt="Image 4">
+                    <h4>Yogie Arifansyah Pohan</h4>
+                    <p>Front-End Engineer</p>
+                </div>
+                <div class="team-member-item">
+                    <img src="./Image/fia.png" alt="Image 5">
+                    <h4>Fia Hamasyatus S.</h4>
+                    <p>Front-End Engineer</p>
+                </div>
+                <div class="team-member-item">
+                    <img src="./Image/adi.png" alt="Image 6">
+                    <h4>Adi Aris</h4>
+                    <p>Front-End Engineer</p>
+                </div>
+                <div class="team-member-item">
+                    <img src="./Image/ayu.png" alt="Image 7">
+                    <h4>Ayu Aulia</h4>
+                    <p>Deployment Team</p>
+                </div>
+                <div class="team-member-item">
+                    <img src="./Image/malisda.png" alt="Image 8">
+                    <h4>Malisda Daud</h4>
+                    <p>Pitch Deck Team</p>
+                </div>
+                <div class="team-member-item">
+                    <img src="./Image/dhea.png" alt="Image 9">
+                    <h4>Dhea Puspa</h4>
+                    <p>Pitch Deck Team</p>
+                </div>
+                <div class="team-member-item">
+                    <img src="./Image/kara.png" alt="Image 10">
+                    <h4>Kara Sevania</h4>
+                    <p>Pitch Deck Team</p>
+                </div>
+                <div class="team-member-item">
+                    <img src="./Image/bella.png" alt="Image 11">
+                    <h4>Salsabila Tyas A.</h4>
+                    <p>Quality Assurance</p>
+                </div>
+                <div class="team-member-item">
+                    <img src="./Image/putri.png" alt="Image 12">
+                    <h4>Putri Aprillia</h4>
+                    <p>Quality Assurance</p>
+                </div>
+                <div class="team-member-item">
+                    <img src="./Image/oca.png" alt="Image 13">
+                    <h4>Alfonsa Maria</h4>
+                    <p>Quality Assurance</p>
+                </div>
+              </div>
+            </div>
+        </section>
     </div>
+
+    
+    <footer>
+      <p><b>Copyright</b> ©2024 all rights reserved by Team 11</p>
+  </footer>
+  <script>
+    AOS.init();
+  </script>
 </body>
 </html>
