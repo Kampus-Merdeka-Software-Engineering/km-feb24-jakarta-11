@@ -254,3 +254,10 @@ footer h3 {
     border: 1px solid #ccc;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
+
+.select2-results__option--selectable {
+    color: black;
+    }  
+  .select2-selection__choice {
+      color: black;
+  }
