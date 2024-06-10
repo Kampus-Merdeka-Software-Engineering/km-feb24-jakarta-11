@@ -391,7 +391,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         };
         propertyPriceChart = new Chart(ctx, config);
-        console.log("Chart initialized with data:", data);
+        // console.log("Chart initialized with data:", data);
     }
 
     function initNeighborhoodChart(data) {
@@ -633,8 +633,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else {
                     updateTotalUnitSalesPerMonthChart(totalUnitSalesData);
                 }
-                initSalesMap(filteredData);
-                updateDataTable(filteredData); // Call updateDataTable to fill the table with data
+                // initSalesMap(filteredData);
+                // updateDataTable(filteredData); // Call updateDataTable to fill the table with data
             });
     }
 
@@ -865,7 +865,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateChart(data) {
         propertyPriceChart.data = data;
         propertyPriceChart.update();
-        console.log("Chart updated with data:", data);
+        // console.log("Chart updated with data:", data);
     }
 
     function updateNeighborhoodChart(data) {
@@ -896,7 +896,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     $(document).ready(function() {
         $('#monthYearFilter').select2({
-            placeholder: "MONTH",
+            placeholder: "- SELECT MONTH -",
             allowClear: true
         });
 
