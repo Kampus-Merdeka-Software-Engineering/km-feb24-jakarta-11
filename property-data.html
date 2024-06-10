@@ -5,12 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Property Data</title>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-    <script src="script.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
     <style>
-        #propertyTable td {
+        body {
+            font-family: Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #B4B4B8;
+        }
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .btn-back {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            background-color: #222;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
             text-align: center;
+            transition: background-color 0.3s;
+        }
+        .btn-back:hover {
+            background-color: black;
+            color: white;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            
+        }
+        #propertyTable {
+            width: 100%;
+            margin: 0 auto;
+            overflow-x: auto;
+        }
+        #propertyTable td, #propertyTable th {
+            text-align: center;
+            padding: 8px;
+        }
+        @media (max-width: 600px) {
+            .btn-back {
+                width: 100%;
+                padding: 15px 0;
+            }
+            #propertyTable thead {
+                display: none;
+            }
+            #propertyTable tbody tr {
+                display: none;
+            }
+            #propertyTable tbody tr:first-child {
+                display: table-row;
+            }
+            #propertyTable tbody td {
+                display: block;
+                text-align: right;
+                padding-left: 50%;
+                position: relative;
+                border: none;
+                border-bottom: 1px solid #ddd;
+            }
+            #propertyTable tbody td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 50%;
+                padding-left: 15px;
+                font-weight: bold;
+                text-align: left;
+                white-space: nowrap;
+            }
         }
     </style>
 </head>
@@ -18,67 +89,62 @@
     <div class="container">
         <a href="index.html" class="btn btn-back">Return to Homepage</a>
         <h1>Property Data</h1>
-        <table id="propertyTable" class="display">
+        <table id="propertyTable" class="display responsive nowrap" width="100%">
             <thead>
                 <tr>
                     <th>Borough</th>
-                    <th>Neighborhood</th>
                     <th>Building Category</th>
-                    <th>Residential Units</th>
-                    <th>Commercial Units</th>
                     <th>Total Units</th>
-                    <th>Land Square Feet</th>
-                    <th>Year Built</th>
                     <th>Sale Price</th>
                     <th>Sale Date</th>
                 </tr>
             </thead>
+            <tbody>
+                <!-- Data will be populated here -->
+            </tbody>
         </table>
     </div>
     <script>
         $(document).ready(function() {
             $('#propertyTable').DataTable({
+                responsive: true,
                 "ajax": {
                     "url": "data.json",
                     "dataSrc": ""
                 },
                 "columns": [
                     { "data": "BOROUGH" },
-                    { "data": "NEIGHBORHOOD" },
                     { "data": "CATEGORY BUILDING" },
-                    { "data": "RESIDENTIAL UNITS" },
-                    { "data": "COMMERCIAL UNITS" },
                     { "data": "TOTAL UNITS" },
-                    { "data": "LAND SQUARE FEET" },
-                    { "data": "YEAR BUILT" },
                     { "data": "SALE PRICE" },
                     { "data": "SALE DATE" }
-                ]
+                ],
+                "columnDefs": [
+                    { targets: 0, createdCell: function (td, cellData, rowData, row, col) { $(td).attr('data-label', 'Borough'); }},
+                    { targets: 1, createdCell: function (td, cellData, rowData, row, col) { $(td).attr('data-label', 'Building Category'); }},
+                    { targets: 2, createdCell: function (td, cellData, rowData, row, col) { $(td).attr('data-label', 'Total Units'); }},
+                    { targets: 3, createdCell: function (td, cellData, rowData, row, col) { $(td).attr('data-label', 'Sale Price'); }},
+                    { targets: 4, createdCell: function (td, cellData, rowData, row, col) { $(td).attr('data-label', 'Sale Date'); }},
+                ],
+                "initComplete": function(settings, json) {
+                    // Apply visibility changes only after table initialization
+                    if (window.innerWidth <= 600) {
+                        $('#propertyTable tbody tr').hide();
+                        $('#propertyTable tbody tr:first-child').show();
+                    }
+                }
+            });
+
+            // Listen for window resize to reapply the visibility changes
+            $(window).resize(function() {
+                if (window.innerWidth <= 600) {
+                    $('#propertyTable tbody tr').hide();
+                    $('#propertyTable tbody tr:first-child').show();
+                } else {
+                    $('#propertyTable tbody tr').show();
+                }
             });
         });
     </script>
-    <head>
-        <title>property data</title>
-        ...
-        <style>
-            .btn-back {
-                display: inline-block;
-                padding: 10px 20px;
-                margin-bottom: 20px;
-                background-color: #007bff;
-                color: white;
-                text-decoration: none;
-                border-radius: 5px;
-                text-align: center;
-                transition: background-color 0.3s;
-            }
-    
-            .btn-back:hover {
-                background-color: #0056b3;
-                color: white;
-            }
-        </style>
-    </head>
 </body>
-</html>
 </html>

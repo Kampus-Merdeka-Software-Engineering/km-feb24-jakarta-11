@@ -361,17 +361,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Memanggil fungsi untuk menambahkan marker borough
     addBoroughMarkers();
 
-    function initSalesMap(data) {
-        data.forEach(item => {
-            geocodeAddress(item.ADDRESS + ', New York').then(coords => {
-                if (coords) {
-                    L.marker([coords.lat, coords.lng]).addTo(map)
-                        .bindPopup(`${item.ADDRESS}<br>Price: $${item['SALE PRICE']}`);
-                }
-            });
-        });
-    }
-
     function initChart(data) {
         const config = {
             type: 'line',
@@ -391,7 +380,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         };
         propertyPriceChart = new Chart(ctx, config);
-        // console.log("Chart initialized with data:", data);
     }
 
     function initNeighborhoodChart(data) {
@@ -633,8 +621,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else {
                     updateTotalUnitSalesPerMonthChart(totalUnitSalesData);
                 }
-                // initSalesMap(filteredData);
-                // updateDataTable(filteredData); // Call updateDataTable to fill the table with data
             });
     }
 
@@ -865,7 +851,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateChart(data) {
         propertyPriceChart.data = data;
         propertyPriceChart.update();
-        // console.log("Chart updated with data:", data);
     }
 
     function updateNeighborhoodChart(data) {
@@ -887,11 +872,6 @@ document.addEventListener('DOMContentLoaded', function() {
         totalUnitSalesPerMonthChart.data.datasets[0].data = data.totalUnits;
         totalUnitSalesPerMonthChart.data.datasets[0].borderColor = '#3357FF'; // Changed to consistent blue color
         totalUnitSalesPerMonthChart.update();
-    }
-
-    function getRandomColor() {
-        const hue = Math.floor(Math.random() * 360);
-        return `hsl(${hue}, 100%, 50%)`;
     }
 
     $(document).ready(function() {
