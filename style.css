@@ -126,7 +126,6 @@ header h2 {
 .stat {
     background: white;
     padding: 35px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     flex: 1;
     margin: 20px;
@@ -262,6 +261,9 @@ footer h3 {
     }
     #main {
         margin-left: 0
+    }
+    .w3-padding-large {
+        padding: 0 !important;
     }
 }
 @media (max-width: 480px) {
