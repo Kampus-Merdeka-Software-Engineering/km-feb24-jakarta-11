@@ -1,5 +1,7 @@
+# link vercel:
 https://km-feb24-jakarta-11-eta.vercel.app/
 
+# team member :
 project leader : Ahmad Aprijal 
 
 front-end engineer :
@@ -20,3 +22,7 @@ Quality Assurance:
 1. Salsabila Tyas A.
 2. Putri Aprillia
 3. Alfonsa Maria
+
+# Quality code
+![gambar tes](https://github.com/Kampus-Merdeka-Software-Engineering/km-feb24-jakarta-11/assets/167770566/16c15bb9-7759-47ea-920a-5a1ac2967557)
+
