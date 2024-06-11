@@ -24,5 +24,6 @@ Quality Assurance:
 3. Alfonsa Maria
 
 # Quality code
-![gambar tes](https://github.com/Kampus-Merdeka-Software-Engineering/km-feb24-jakarta-11/assets/167770566/16c15bb9-7759-47ea-920a-5a1ac2967557)
+![Cuplikan layar 2024-06-11 113445](https://github.com/Kampus-Merdeka-Software-Engineering/km-feb24-jakarta-11/assets/167770566/81dd972b-467f-4656-991e-8ef17381c516)
+
 
