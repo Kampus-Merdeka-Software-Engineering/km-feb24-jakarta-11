@@ -26,4 +26,7 @@ Quality Assurance:
 # Quality code
 ![Cuplikan layar 2024-06-11 113445](https://github.com/Kampus-Merdeka-Software-Engineering/km-feb24-jakarta-11/assets/167770566/81dd972b-467f-4656-991e-8ef17381c516)
 
+# drive team 
+https://drive.google.com/drive/folders/1mJEenycgiP9akXHjqjsNfy7CJX35Wiz-?usp=sharing
+
 
